@@ -1,11 +1,15 @@
 package com.example.android.hacker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -13,6 +17,7 @@ import java.util.ArrayList;
 
 import static android.R.attr.id;
 import static android.os.Build.VERSION_CODES.M;
+import static android.transition.Fade.IN;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,19 +52,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView listView=(ListView)findViewById(R.id.list_item);
-        ArrayList<String> topics=new ArrayList<>();
-        topics.add("Android Development");
-        topics.add("Web Development");
-        topics.add("C");
-        topics.add("Java");
-        topics.add("Git");
-        topics.add("Django");
-        topics.add("Kotlin");
-        topics.add("MySQL");
+        GridView gridView=(GridView) findViewById(R.id.my_grid);
+       // ArrayList<String> topics=new ArrayList<>();
+        String topics[]= {"Android Development", "Web Development", "C", "Java", "Git", "Django", "Kotlin", "MySQL"};
+        int images[]={R.drawable.android,R.drawable.web,R.drawable.c,R.drawable.java,R.drawable.git,R.drawable.django,R.drawable.kotlin,R.drawable.sql};
+        GridAdapter gridAdapter= new GridAdapter(MainActivity.this,images,topics);
 
-        ArrayAdapter arrayAdapter=new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,topics);
-        listView.setAdapter(arrayAdapter);
+        //ArrayAdapter arrayAdapter=new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,topics);
+        gridView.setAdapter(gridAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getApplicationContext(),tutor.class);
+                intent.putExtra("place",position);
+
+                startActivity(intent);
+            }
+        });
 
     }
 }

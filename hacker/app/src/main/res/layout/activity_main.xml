@@ -26,11 +26,10 @@
         android:textStyle="bold"
         />
 
-    <ListView
-        android:id="@+id/list_item"
-        android:color="@color/colorAccent"
+    <GridView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:id="@+id/my_grid"/>
 
 
 </LinearLayout>
