@@ -12,10 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import static android.R.attr.id;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static android.os.Build.VERSION_CODES.M;
 import static android.transition.Fade.IN;
 
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
        // ArrayList<String> topics=new ArrayList<>();
 
-        String topics[]= {"Android Development", "Web Development", "C", "Java", "Git", "Django", "Kotlin", "MySQL"};
+        final String topics[]= {"Android Development", "Web Development", "C", "Java", "Git", "Django", "Kotlin", "MySQL"};
 
         int images[]={R.drawable.android1,R.drawable.webd,R.drawable.c1,R.drawable.java1,R.drawable.git1,R.drawable.django1,R.drawable.android1,R.drawable.sql1};
 
@@ -65,15 +67,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         gridView.setAdapter(gridAdapter);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getApplicationContext(),tutor.class);
-                intent.putExtra("place",position);
+       gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               switch(position)
+               {
+                  case 0:
+                   Toast.makeText(MainActivity.this, topics[0], Toast.LENGTH_SHORT).show();
+                       Intent this_intent=new Intent(getApplicationContext(),app.class);
+                       startActivity(this_intent);
 
-                startActivity(intent);
-            }
-        });
 
+               }
+           }
+       });
     }
 }
