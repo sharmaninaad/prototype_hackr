@@ -52,13 +52,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        GridView gridView=(GridView) findViewById(R.id.my_grid);
-       // ArrayList<String> topics=new ArrayList<>();
-        String topics[]= {"Android Development", "Web Development", "C", "Java", "Git", "Django", "Kotlin", "MySQL"};
-        int images[]={R.drawable.android,R.drawable.web,R.drawable.c,R.drawable.java,R.drawable.git,R.drawable.django,R.drawable.kotlin,R.drawable.sql};
-        GridAdapter gridAdapter= new GridAdapter(MainActivity.this,images,topics);
 
-        //ArrayAdapter arrayAdapter=new ArrayAdapter(MainActivity.this,android.R.layout.simple_list_item_1,topics);
+        GridView gridView=(GridView) findViewById(R.id.my_grid);
+
+       // ArrayList<String> topics=new ArrayList<>();
+
+        String topics[]= {"Android Development", "Web Development", "C", "Java", "Git", "Django", "Kotlin", "MySQL"};
+
+        int images[]={R.drawable.android1,R.drawable.webd,R.drawable.c1,R.drawable.java1,R.drawable.git1,R.drawable.django1,R.drawable.android1,R.drawable.sql1};
+
+        GridAdapter gridAdapter= new GridAdapter(getApplicationContext(),images,topics);
+
+
         gridView.setAdapter(gridAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

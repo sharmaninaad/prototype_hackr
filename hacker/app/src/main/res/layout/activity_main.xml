@@ -15,21 +15,20 @@
         android:layout_height="74dp"
         app:srcCompat="@drawable/unnamed" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find and Share the best programming tutorials"
-        android:textColor="#ffffff"
-        android:fontFamily="cursive"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        />
+
 
     <GridView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/my_grid"/>
+        android:id="@+id/my_grid"
+        android:numColumns="auto_fit"
+        android:gravity="center"
+        android:columnWidth="100dp"
+        android:visibility="visible"
+
+
+
+        />
 
 
 </LinearLayout>

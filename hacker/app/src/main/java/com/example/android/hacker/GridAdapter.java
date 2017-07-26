@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 public class GridAdapter extends BaseAdapter {
 
-    Context context;
-    int[] res_ids;
-    String[] texts;
+    private Context context;
+    private final int[] res_ids;
+    private final String[] texts;
     public GridAdapter(Context context,int[] res_ids,String[] texts ){
         this.context=context;
         this.res_ids=res_ids;
@@ -34,7 +34,7 @@ public class GridAdapter extends BaseAdapter {
             grid = inflater.inflate(R.layout.grid_single, null);
             TextView textView = (TextView) grid.findViewById(R.id.grid_text);
             ImageView imageView = (ImageView)grid.findViewById(R.id.grid_image);
-            textView.setText(texts[position]);
+            textView.setText(getItem(position).toString());
             imageView.setImageResource(res_ids[position]);
         } else {
             grid = (View) convertView;
@@ -47,7 +47,7 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return texts[position];
     }
 
     @Override
@@ -57,6 +57,6 @@ public class GridAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return texts.length;
     }
 }
