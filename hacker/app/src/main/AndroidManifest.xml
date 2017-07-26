@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.android.hacker.app"></activity>
+
     </application>
 
 </manifest>

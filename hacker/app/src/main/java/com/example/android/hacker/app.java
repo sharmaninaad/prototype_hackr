@@ -16,37 +16,39 @@ import java.util.ArrayList;
 import static com.example.android.hacker.R.drawable.web;
 
 public class app extends AppCompatActivity {
-    ArrayList<String>tutorials;
-    ArrayList<String> links;
+
     ListView listView1;
-    ArrayAdapter arrayAdapter1;
+    String[]links={"http://web.stanford.edu/class/cs193a/videos.shtml",
+            "https://www.youtube.com/playlist?list=PLonJJ3BVjZW6CtAMbJz1XD8ELUs1KXaTD",
+            "http://www.vogella.com/tutorials/android.html",
+            "https://developer.android.com/training/index.html",
+            "https://www.youtube.com/playlist?list=PLonJJ3BVjZW6hYgvtkaWvwAVvOFB7fkLa"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app);
 
-        tutorials=new ArrayList<>();
-        links=new ArrayList<>();
+        String[]tutorials={"Android App development by stanford", "Android Material Design Tutorial",
+        "Tutorials about development for android",
+        "Training for Android developers",
+        "Android Tutorials for beginner"};
 
-        tutorials.add("Android App development by stanford");
-        tutorials.add("Android Material Design Tutorial");
-        tutorials.add("Tutorials about development for android");
-        tutorials.add("Training for Android developers");
-        tutorials.add("Android Tutorials for beginner");
+        String[] payment={"Free","Free","Free","Free","Free"};
+        String[] voting={"88","23","13","13","9"};
+        String[] vidd={"Video","Video","Text","Text","Video"};
 
-        links.add("http://web.stanford.edu/class/cs193a/videos.shtml");
-        links.add("https://www.youtube.com/playlist?list=PLonJJ3BVjZW6CtAMbJz1XD8ELUs1KXaTD");
-        links.add("http://www.vogella.com/tutorials/android.html");
-        links.add("https://developer.android.com/training/index.html");
-        links.add("https://www.youtube.com/playlist?list=PLonJJ3BVjZW6hYgvtkaWvwAVvOFB7fkLa");
+
+
+
 
          listView1=(ListView)findViewById(R.id.a_list);
-        arrayAdapter1=new ArrayAdapter(getApplicationContext(),R.layout.list_black,R.id.list_content,tutorials);
-        listView1.setAdapter(arrayAdapter1);
+        listAdapter la=new listAdapter(this,tutorials,payment,voting,vidd);
+        listView1.setAdapter(la);
         listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(links.get(position)));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(links[position]));
                 startActivity(browserIntent);
             }
         });
