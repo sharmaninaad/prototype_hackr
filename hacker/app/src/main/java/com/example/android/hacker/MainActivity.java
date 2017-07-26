@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.chat:
+
                 return true;
 
 
@@ -59,9 +60,51 @@ public class MainActivity extends AppCompatActivity {
 
        // ArrayList<String> topics=new ArrayList<>();
 
-        final String topics[]= {"Android Development", "Web Development", "C", "Java", "Git", "Django", "Kotlin", "MySQL"};
+        final String topics[]= {
+                "Android Development",
+                "Web Development",
+                "C",
+                "Java",
+                "Git",
+                "Django",
+                "Kotlin",
+                "MySQL",
+                "Ansible",
+                "Arduino",
+                "Data Science",
+                "Go",
+                "Grails",
 
-        int images[]={R.drawable.android1,R.drawable.webd,R.drawable.c1,R.drawable.java1,R.drawable.git1,R.drawable.django1,R.drawable.android1,R.drawable.sql1};
+                "PHP",
+                "Python",
+
+                "Javascript",
+
+                "Photoshop",
+                "R"
+
+        };
+
+        int images[]={
+                R.drawable.android1,
+                R.drawable.webd,
+                R.drawable.c1,
+                R.drawable.java1,
+                R.drawable.git1,
+                R.drawable.django1,
+                R.drawable.android1,
+                R.drawable.sql1,
+                R.drawable.ansible,
+                R.drawable.arduino,
+                R.drawable.datasc,
+                R.drawable.go,
+                R.drawable.grails,
+               
+                R.drawable.python,
+                R.drawable.js,
+                R.drawable.photoshop,
+                R.drawable.r
+        };
 
         GridAdapter gridAdapter= new GridAdapter(getApplicationContext(),images,topics);
 
@@ -81,5 +124,6 @@ public class MainActivity extends AppCompatActivity {
                }
            }
        });
+
     }
 }
