@@ -1,5 +1,6 @@
 package com.example.android.hacker;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -24,38 +27,13 @@ import static android.transition.Fade.IN;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //return super.onCreateOptionsMenu(menu);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.chat:
-
-                return true;
 
 
-            case R.id.buddy:
-                return true;
-
-            case R.id.help:
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         GridView gridView=(GridView) findViewById(R.id.my_grid);
 
@@ -134,4 +112,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "lllll", Toast.LENGTH_SHORT).show();
             }
     }
+
 }

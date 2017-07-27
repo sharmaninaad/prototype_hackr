@@ -8,6 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import static android.R.attr.id;
 import static com.example.android.hacker.R.id.imageView;
 import static com.example.android.hacker.R.id.vid;
 
@@ -17,12 +20,12 @@ import static com.example.android.hacker.R.id.vid;
 
 public class listAdapter extends BaseAdapter {
     Context context;
-    String[] title;
-    String[] pay;
-    String[] upvote;
-    String[] video;
+   private ArrayList<String>title;
+    private ArrayList<String> pay;
+    private ArrayList<String> upvote;
+    private ArrayList<String> video;
 
-    public listAdapter(Context context,String[] title,String[] pay,String[] upvote,String[] video)
+    public listAdapter(Context context,ArrayList<String> title,ArrayList<String> pay,ArrayList<String> upvote,ArrayList<String> video)
     {
      this.context=context;
         this.title=title;
@@ -33,12 +36,12 @@ public class listAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return title.length;
+        return title.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return title[position];
+        return title.get(position);
     }
 
     @Override
@@ -59,12 +62,12 @@ public class listAdapter extends BaseAdapter {
             TextView titles = (TextView) list.findViewById(R.id.list_content);
             TextView pays = (TextView)list.findViewById(R.id.pay);
             TextView upvotes=(TextView)list.findViewById(R.id.votes);
-            TextView videos=(TextView)list.findViewById(vid);
+            TextView videos=(TextView)list.findViewById(R.id.vid);
            // TextView upvote=(TextView)list.findViewById(R.id.votes);
-            titles.setText(title[position].toString());
-            pays.setText(pay[position].toString());
-           upvotes.setText(upvote[position].toString());
-            videos.setText(video[position].toString());
+            titles.setText(title.get(position));
+            pays.setText(pay.get(position));
+           upvotes.setText(upvote.get(position));
+            videos.setText(video.get(position));
 
 
         } else {
