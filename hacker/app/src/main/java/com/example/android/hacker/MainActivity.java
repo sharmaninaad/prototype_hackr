@@ -3,6 +3,7 @@ package com.example.android.hacker;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -99,31 +100,38 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.datasc,
                 R.drawable.go,
                 R.drawable.grails,
-               
+                R.drawable.php,
                 R.drawable.python,
                 R.drawable.js,
                 R.drawable.photoshop,
                 R.drawable.r
         };
 
-        GridAdapter gridAdapter= new GridAdapter(getApplicationContext(),images,topics);
 
 
-        gridView.setAdapter(gridAdapter);
-       gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           @Override
-           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               switch(position)
-               {
-                  case 0:
-                   Toast.makeText(MainActivity.this, topics[0], Toast.LENGTH_SHORT).show();
-                       Intent this_intent=new Intent(getApplicationContext(),app.class);
-                       startActivity(this_intent);
+        if(images.length==topics.length) {
+            GridAdapter gridAdapter = new GridAdapter(getApplicationContext(), images, topics);
 
 
-               }
-           }
-       });
+            gridView.setAdapter(gridAdapter);
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    switch (position) {
+                        case 0:
+                            Toast.makeText(MainActivity.this, topics[0], Toast.LENGTH_SHORT).show();
+                            Intent this_intent = new Intent(getApplicationContext(), app.class);
+                            startActivity(this_intent);
 
+
+                    }
+                }
+            });
+
+        }
+        else
+            {
+                Toast.makeText(this, "lllll", Toast.LENGTH_SHORT).show();
+            }
     }
 }

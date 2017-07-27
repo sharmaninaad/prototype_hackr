@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import static com.example.android.hacker.R.id.imageView;
+import static com.example.android.hacker.R.id.vid;
 
 /**
  * Created by Ninaad on 7/26/2017.
@@ -18,15 +19,15 @@ public class listAdapter extends BaseAdapter {
     Context context;
     String[] title;
     String[] pay;
-    String[] upvotes;
+    String[] upvote;
     String[] video;
 
-    public listAdapter(Context context,String[] title,String[] pay,String[] upvotes,String[] video)
+    public listAdapter(Context context,String[] title,String[] pay,String[] upvote,String[] video)
     {
      this.context=context;
         this.title=title;
         this.pay=pay;
-        this.upvotes=upvotes;
+        this.upvote=upvote;
         this.video=video;
     }
 
@@ -54,16 +55,16 @@ public class listAdapter extends BaseAdapter {
         if (convertView == null) {
 
             list = new View(context);
-            list = inflater.inflate(R.layout.grid_single, null);
-            TextView title = (TextView) list.findViewById(R.id.list_content);
+            list = inflater.inflate(R.layout.list_black, null);
+            TextView titles = (TextView) list.findViewById(R.id.list_content);
             TextView pays = (TextView)list.findViewById(R.id.pay);
-            TextView upvote=(TextView)list.findViewById(R.id.votes);
-            TextView vid=(TextView)list.findViewById(R.id.vid);
+            TextView upvotes=(TextView)list.findViewById(R.id.votes);
+            TextView videos=(TextView)list.findViewById(vid);
            // TextView upvote=(TextView)list.findViewById(R.id.votes);
-            title.setText(getItem(position).toString());
+            titles.setText(title[position].toString());
             pays.setText(pay[position].toString());
-           upvote.setText(upvotes[position].toString());
-            vid.setText(video[position].toString());
+           upvotes.setText(upvote[position].toString());
+            videos.setText(video[position].toString());
 
 
         } else {
